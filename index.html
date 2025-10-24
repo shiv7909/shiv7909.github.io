@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accelerus Tech — Engineered for Tomorrow</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✨%3C/text%3E%3C/svg%3E">
+    <style>
+        /* --- CSS Variables (10/10 Industrial/Futuristic Palette) --- */
+        :root {
+            --dark-bg: #000a12; /* Near-black for deep contrast */
+            --mid-bg: #0a192f;  /* Elevated card background (Navy/Steel) */
+            --text-primary: #e6f1ff; /* Bright white for primary text */
+            --text-secondary: #94a3b8; /* Cool gray for secondary text */
+            --accent-color: #00E5FF; /* Electric Cyan/Aqua for highlight */
+            --link-color: #38a3a5; /* Teal/Aqua for actionable links */
+            --font-stack: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            --max-width: 1200px;
+        }
+
+        /* --- Global Reset & Body Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--link-color) 0%, #00e5ff 100%);
+            color: var(--dark-bg);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(90deg, #00e5ff 0%, var(--link-color) 100%);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
+        }
+        
+        /* Subtle Glow Divider */
+        .glow-divider {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 255, 0.5) 50%, transparent 100%);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+            margin: 0 auto;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 0.95em;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            left: 50%;
+            bottom: -8px;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* --- Hero Section (Dynamic Starfield) --- */
+        #hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        #starfield-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: radial-gradient(circle at center, rgba(0, 10, 18, 0.5) 0%, rgba(0, 10, 18, 1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #hero h1 {
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -0.05em;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+
+        #hero p {
+            font-size: 1.6em;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* --- Philosophy/Mission Section --- */
+        #philosophy {
+            background-color: var(--mid-bg);
+            padding: 100px 0;
+            text-align: left;
+            border-top: 5px solid var(--dark-bg); /* Match the previous border */
+        }
+        
+        #philosophy .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        #philosophy h2 {
+            font-size: 3em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        #philosophy blockquote {
+            font-size: 1.8em;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.4;
+            padding-left: 20px;
+            border-left: 5px solid var(--link-color);
+            color: var(--text-primary);
+        }
+        
+        /* --- General Section Styling --- */
+        section {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--dark-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section h2 {
+            font-size: 3.2em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+
+        section .subtitle {
+            font-size: 1.3em;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Services/Cards Section (3D Look) --- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            background-color: var(--mid-bg);
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 35px;
+            text-align: left;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) rotateX(1deg) scale(1.02);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15), 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .service-card p {
+            font-size: 1em;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .service-card li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+            font-size: 0.95em;
+        }
+        
+        /* The requested arrow symbol */
+        .service-card li::before {
+            content: '→'; 
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        /* Contact specific styling */
+        .contact-email-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-email-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #000000;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 992px) {
+            #hero h1 {
+                font-size: 3.5em;
+            }
+            #philosophy .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            #philosophy h2 {
+                margin-bottom: 30px;
+            }
+            nav {
+                display: none;
+            }
+            .header-content {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            #hero p {
+                font-size: 1.2em;
+            }
+            section h2 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#hero" class="logo-text">Accelerus Tech</a>
+            <nav>
+                <a href="#philosophy">Mission</a>
+                <a href="#services">Solutions</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <canvas id="starfield-canvas"></canvas>
+        <div class="container hero-content">
+            <h1>Engineered Precision. Accelerated Growth.</h1>
+            <p>Your strategic partner in technology, delivering robust architecture, market-defining MVPs, and enterprise transformation at velocity.</p>
+            <a href="mailto:24mca00py0020@pondiuni.ac.in" class="cta-button">Initiate Consultation</a>
+            <a href="mailto:24mca00py0020@pondiuni.ac.in" class="contact-email-link">Email: 24mca00py0020@pondiuni.ac.in</a>
+        </div>
+    </section>
+    
+    <div class="glow-divider"></div>
+
+    <section id="philosophy">
+        <div class="container">
+            <h2>Our Global Mandate</h2>
+            <div>
+                <blockquote>
+                    We don't just build software. We engineer strategic, resilient technology that redefines market leadership and drives exponential client value.
+                </blockquote>
+                <p class="author" style="margin-top: 20px; color: var(--text-secondary);">
+                    — Accelerus Tech Strategy Office
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Core Solutions: Innovation at Scale.</h2>
+            <p class="subtitle">
+                Focused expertise ensures your technology is a strategic asset, built for performance and sustainable growth.
+            </p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>MVP Engineering</h3>
+                    <p>Deliver the fastest path to market validation. We apply rigorous engineering principles to build a scalable, production-ready MVP.</p>
+                    <ul>
+                        <li>Lean Agile Development</li>
+                        <li>High-Fidelity Prototyping</li>
+                        <li>Market-Ready Deployment</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Enterprise Transformation</h3>
+                    <p>We redefine business processes through technology. Strategic consulting, cloud adoption, and system integration for operational mastery.</p>
+                    <ul>
+                        <li>Cloud Strategy & FinOps</li>
+                        <li>Custom Software Architecture</li>
+                        <li>AI/ML and Automation</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Architecture & Security</h3>
+                    <p>Build on an unbreakable foundation. We ensure regulatory compliance and implement Zero Trust architectures to protect your assets globally.</p>
+                    <ul>
+                        <li>DevSecOps & CI/CD</li>
+                        <li>Microservices Design</li>
+                        <li>Advanced Security Compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Ready to Mobilize?</h2>
+            <p class="subtitle" style="margin-bottom: 30px;">
+                Connect with our dedicated solutions team to discuss your technological mandates.
+            </p>
+            <a href="mailto:24mca00py0020@pondiuni.ac.in" class="cta-button">Initiate Consultation</a>
+            <a href="mailto:24mca00py0020@pondiuni.ac.in" class="contact-email-link">Email: 24mca00py0020@pondiuni.ac.in</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Accelerus Tech. Engineered for Tomorrow.</p>
+            <p>
+                <a href="#">Security Statement</a>
+                <a href="#">Careers</a>
+                <a href="#">Investor Relations</a>
+            </p>
+            <p style="margin-top: 10px;">Copyright © 2024 Accelerus Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Correct Mailto Link Functionality ---
+            const emailAddress = '24mca00py0020@pondiuni.ac.in';
+            const contactLinks = document.querySelectorAll('a[href^="mailto:"]');
+            contactLinks.forEach(link => {
+                link.setAttribute('href', 'mailto:' + emailAddress);
+            });
+            
+            // --- Smooth Scrolling ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Dynamic Starfield/Data Grid Canvas ---
+            const canvas = document.getElementById('starfield-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const numParticles = 100;
+            const linkDistance = 150; 
+            const particleColor = 'rgba(0, 229, 255, 0.5)';
+            const linkColor = 'rgba(0, 229, 255, 0.1)';
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight * 0.9;
+                particles = [];
+                initParticles();
+            }
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 1.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.2;
+                    this.speedY = (Math.random() - 0.5) * 0.2;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+
+                draw() {
+                    ctx.fillStyle = particleColor;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                for (let i = 0; i < numParticles; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function drawLinks() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < linkDistance) {
+                            const opacity = 1 - (distance / linkDistance);
+                            ctx.strokeStyle = linkColor.replace('0.1', opacity * 0.15);
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                drawLinks();
+            }
+
+            resizeCanvas();
+            animate();
+        });
+    </script>
+
+</body>
+</html>
