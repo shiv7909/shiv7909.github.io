@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/privacypolicy", "destination": "/privacy", "permanent": true },
+    { "source": "/terms-and-conditions", "destination": "/terms", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/terms", "permanent": true },
+    { "source": "/refund-policy", "destination": "/refund", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/((?!t/|q/).*)", "destination": "/index.html" }
+  ]
+}
+

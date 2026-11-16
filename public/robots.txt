@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /t/
+Disallow: /q/
+
+Sitemap: https://propden.in/sitemap.xml
+

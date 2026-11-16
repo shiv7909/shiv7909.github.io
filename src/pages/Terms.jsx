@@ -1,79 +1,164 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
+import LegalLayout from '../components/LegalLayout';
+import PageMeta from '../components/PageMeta';
+import { SITE } from '../constants/site';
 
 const Terms = () => {
   return (
-    <>
-      <Navbar />
-      <main style={{ padding: '80px 60px', background: 'var(--gray-50)', minHeight: 'calc(100vh - 68px)' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', background: 'var(--white)', padding: '60px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--gray-200)', boxShadow: 'var(--card-shadow)' }}>
-          <div className="section-eyebrow" style={{ marginBottom: '12px' }}>Legal</div>
-          <h1 className="section-headline" style={{ marginBottom: '16px' }}>Terms & Conditions</h1>
-          <p className="section-sub" style={{ marginBottom: '40px' }}>Effective Date: {new Date().toLocaleDateString()}</p>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>1. Introduction</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                Welcome to Propden. These Terms and Conditions govern your access to and use of the Propden mobile application and associated services. Propden operates as a unified platform covering the entire property lifecycle, including renting, buying, selling, and building. By accessing the platform using our OTP-only authentication, you agree to be bound by these terms.
-              </p>
-            </section>
+    <LegalLayout
+      eyebrow="Terms"
+      title="Propden Terms of Service"
+      subtitle={`Effective date: ${SITE.effectiveDate}`}
+    >
+      <PageMeta
+        title="Propden Terms of Service — Propden"
+        description="Terms of Service for the Propden Android app and propden.in, operated by Jakkula Shiva Kumar."
+        path="/terms"
+      />
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>2. Scope of Services</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                Propden provides a singular platform where users can search across plots, flats, independent houses, and commercial spaces.
-                <br /><br />
-                <strong style={{ color: 'var(--navy)' }}>Property Listings:</strong> We facilitate property discovery through self-listed properties, broker-listed properties, and Propden-managed sales.
-                <br /><br />
-                <strong style={{ color: 'var(--navy)' }}>Propden Verified Managed Sales:</strong> Users may opt for our managed service where our team handles the listing, verification, and direct sales process.
-                <br /><br />
-                <strong style={{ color: 'var(--navy)' }}>Build Vertical:</strong> Once activated, the platform connects verified plot buyers with contractors, interior designers, and furniture sellers.
-              </p>
-            </section>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">1. Agreement</h2>
+        <p className="mt-2">
+          By using Propden you agree to these terms. Operated by{' '}
+          <strong>{SITE.legalName}</strong>.
+        </p>
+      </section>
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>3. Account Registration & User Obligations</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                Users must register using a valid phone number via our OTP-only login system. Users may select their preferred interface language, including Telugu, Hindi, or English. Individual owners listing their own property are granted up to 2 active listings free of charge.
-              </p>
-            </section>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">2. The service</h2>
+        <p className="mt-2">
+          Software to manage PG/hostel rooms, tenants, rent records, deposits and
+          complaints. Propden is a record-keeping tool;{' '}
+          <strong>
+            it does not collect rent from tenants or hold money
+          </strong>{' '}
+          on behalf of owners.
+        </p>
+      </section>
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>4. Broker Subscriptions & Commercial Accounts</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                Brokers acting on behalf of clients must subscribe to a tiered monthly plan to maintain active listings. Available tiers range from a free basic tier up to the Elite plan priced at ₹1,00,000 per month, which offers unlimited listings and dedicated agency storefronts. Subscription payments are processed securely via Razorpay.
-              </p>
-            </section>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">3. Accounts</h2>
+        <p className="mt-2">
+          18+ only; accurate information; keep your email secure; you are responsible for
+          activity on your account and for the staff you invite.
+        </p>
+      </section>
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>5. Fees, Commissions, and Payments</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                <strong style={{ color: 'var(--navy)' }}>Managed Sales:</strong> For properties utilizing the Propden Verified managed sale service, Propden charges a 1.5% commission on the final closing sale price.<br /><br />
-                <strong style={{ color: 'var(--navy)' }}>Build Referrals:</strong> Propden earns an 8% referral fee on the total project value from builders, designers, or furniture sellers once a quote request converts into a signed job.<br /><br />
-                All commission transactions and base amounts are calculated and recorded systematically upon the successful conversion of leads.
-              </p>
-            </section>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">4. Owner&apos;s responsibilities</h2>
+        <p className="mt-2">
+          You are responsible for the tenant data you enter: you must have a lawful
+          reason, inform tenants, and obtain any consent required (including for ID
+          documents and photos). Don&apos;t upload data you&apos;re not allowed to. Store
+          only the last 4 digits of Aadhaar.
+        </p>
+      </section>
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>6. Limitation of Liability</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                Propden acts primarily as a technology facilitator. While we enforce a "Propden Verified" standard for managed sales, we do not guarantee the structural integrity, legal title, or financial compliance of self-listed or broker-listed properties. Any agreements made directly between buyers, sellers, brokers, and builders are the sole responsibility of the contracting parties.
-              </p>
-            </section>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">5. Subscriptions</h2>
+        <p className="mt-2">
+          One subscription per hostel. 14-day free trial for new hostels (no card needed).
+          Plans: monthly, 3, 6 and 12 months, auto-renewing or prepaid, sold through
+          Google Play at the prices shown there. Auto-renewing plans renew until
+          cancelled in Google Play. Prepaid plans end at the end of the period unless
+          renewed. Each plan covers up to 400 active tenants.
+        </p>
+      </section>
 
-            <section>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '14px', color: 'var(--navy)' }}>7. Governing Law</h2>
-              <p style={{ color: 'var(--gray-500)', lineHeight: 1.7, fontSize: '15px' }}>
-                These terms are governed by the laws of India. Any disputes arising from the use of Propden shall be subject to the exclusive jurisdiction of the courts located in Hyderabad, Telangana.
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">6. Ending or lapsed plans</h2>
+        <p className="mt-2">
+          If a plan lapses, the hostel becomes <strong>read-only</strong>; data is not
+          deleted.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">7. Refunds</h2>
+        <p className="mt-2">
+          Handled under Google Play&apos;s refund policy; see{' '}
+          <Link to="/refund" className="font-medium text-[#2E6B4F] underline">
+            /refund
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">8. Acceptable use</h2>
+        <p className="mt-2">
+          No illegal use, no harassment, no uploading malware, no trying to access other
+          users&apos; data, no reverse-engineering or overloading the service, no
+          reselling.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">9. Your data</h2>
+        <p className="mt-2">
+          You own your data. You give us permission to store and process it only to
+          provide the service. See the{' '}
+          <Link to="/privacy" className="font-medium text-[#2E6B4F] underline">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">10. Availability</h2>
+        <p className="mt-2">
+          We aim for reliable service but don&apos;t guarantee it will be uninterrupted.
+          Features may change.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">
+          11. Disclaimer and limitation of liability
+        </h2>
+        <p className="mt-2">
+          Service provided &ldquo;as is&rdquo;. We aren&apos;t liable for rent disputes,
+          tenant issues, or indirect losses. Total liability limited to the amount you
+          paid us in the last 3 months.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">12. Termination</h2>
+        <p className="mt-2">
+          You can stop anytime and delete your account. We may suspend accounts that break
+          these terms.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">13. Governing law</h2>
+        <p className="mt-2">
+          Laws of India; courts at {SITE.governingCity}.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">14. Changes</h2>
+        <p className="mt-2">
+          We may update the terms; continued use means acceptance.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-bold text-[#1F2A44]">15. Contact</h2>
+        <p className="mt-2">
+          <a
+            href={`mailto:${SITE.supportEmail}`}
+            className="font-medium text-[#2E6B4F] underline"
+          >
+            {SITE.supportEmail}
+          </a>{' '}
+          · {SITE.address}
+        </p>
+      </section>
+    </LegalLayout>
   );
 };
 
