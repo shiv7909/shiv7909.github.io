@@ -1,0 +1,9 @@
+/privacy-policy       /privacy    301!
+/privacypolicy        /privacy    301!
+/terms-and-conditions /terms      301!
+/terms-of-service     /terms      301!
+/refund-policy        /refund     301!
+/t/*                  /t/:splat   200
+/q/*                  /q/:splat   200
+/*                    /index.html 200
+
